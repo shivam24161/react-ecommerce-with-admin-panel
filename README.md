@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# E-Commerce Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based frontend for the E-Commerce application with product management functionality.
+
+## Features
+
+- **Product Management**: View, add, edit, and delete products (admin only)
+- **User Authentication**: Login and registration system
+- **Responsive Design**: Mobile-friendly interface using Material-UI
+- **Product Catalog**: Browse products with filtering and search
+- **Shopping Cart**: Add products to cart (basic implementation)
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend server running on `http://localhost:5000`
+
+## Installation
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm start
+```
+
+The application will open at `http://localhost:3000`
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+src/
+├── components/          # Reusable UI components
+│   └── Navbar.js       # Navigation bar
+├── context/            # React context providers
+│   └── AuthContext.js  # Authentication context
+├── pages/              # Page components
+│   ├── Home.js         # Home page
+│   ├── ProductList.js  # Product catalog
+│   ├── ProductDetail.js # Product details
+│   ├── ProductEdit.js  # Edit product (admin)
+│   ├── ProductAdd.js   # Add product (admin)
+│   ├── Login.js        # Login page
+│   ├── Register.js     # Registration page
+│   └── Cart.js         # Shopping cart
+├── services/           # API services
+│   └── api.js          # API functions using fetch
+└── App.js              # Main application component
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API Integration
 
-### `npm test`
+The frontend uses the native `fetch` API to communicate with the backend:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Base URL**: `http://localhost:5000/api`
+- **Authentication**: JWT tokens stored in sessionStorage
+- **Error Handling**: Comprehensive error handling with user-friendly messages
 
-### `npm run build`
+## Admin Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To access admin features (product management), you need to:
+1. Register a new account
+2. Set the `isAdmin` field to `true` in the database
+3. Login with the admin account
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React** - Frontend framework
+- **React Router** - Client-side routing
+- **Material-UI** - UI component library
+- **Fetch API** - HTTP requests
+- **Context API** - State management
 
-### `npm run eject`
+## Development
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The application is configured with:
+- **Proxy**: Automatically forwards API requests to the backend
+- **Hot Reload**: Changes reflect immediately in development
+- **ESLint**: Code linting for better code quality
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Production Build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To create a production build:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This creates an optimized build in the `build` folder that can be deployed to any static hosting service.
