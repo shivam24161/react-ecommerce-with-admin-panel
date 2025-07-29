@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
-// import Home from './pages/Home';
+import Home from './pages/Home';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
 import ProductEdit from './pages/ProductEdit';
@@ -71,8 +71,8 @@ function App() {
           <div className="App">
             <Navbar />
             <Routes>
-              {/* <Route path="/" element={<Home />} /> */}
-              <Route path="/" element={<ProductList />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<ProductList />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/product/edit/:id" element={<ProductEdit />} />
               <Route path="/product/add" element={<ProductAdd />} />
