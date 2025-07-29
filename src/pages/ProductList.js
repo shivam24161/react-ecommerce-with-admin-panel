@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import {
   Container,
   Card,
@@ -91,6 +91,10 @@ const ProductList = () => {
     } catch (error) {
       setError(error.message || 'Failed to load products');
     }
+  }
+
+  if (isAdmin) {
+    return <Navigate to="/admin/dashboard" replace={true} />
   }
 
   if (loading) {
