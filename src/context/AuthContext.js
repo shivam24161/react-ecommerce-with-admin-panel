@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     // Check if user is logged in on app start
     const token = sessionStorage.getItem('token');
     const userData = sessionStorage.getItem('user');
-    
+
     if (token && userData) {
       try {
         setUser(JSON.parse(userData));
@@ -28,16 +28,16 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await authAPI.login(credentials);
       const { accessToken, ...userData } = response.data;
-      
+
       sessionStorage.setItem('token', accessToken);
       sessionStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
-      
+
       return { success: true };
     } catch (error) {
-      return { 
-        success: false, 
-        message: error.response?.data?.message || 'Login failed' 
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Login failed'
       };
     }
   };
@@ -45,11 +45,11 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       const response = await authAPI.register(userData);
-      return { success: true, message: 'Registration successful' };
+      if (response) return { success: true, message: 'Registration successful' };
     } catch (error) {
-      return { 
-        success: false, 
-        message: error.response?.data?.message || 'Registration failed' 
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Registration failed'
       };
     }
   };
