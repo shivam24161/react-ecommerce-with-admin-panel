@@ -1,6 +1,6 @@
-const API_BASE_URL = 'http://localhost:5000/api';
-// const API_BASE_URL = "https://backend-ecommerce-with-admin-panel.onrender.com/api"
-
+// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+console.log(API_BASE_URL,'check',process.env)
 
 // Helper function to get auth token
 const getAuthToken = () => {

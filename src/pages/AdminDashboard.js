@@ -28,9 +28,7 @@ import {
   Inventory,
   AttachMoney,
   TrendingUp,
-  Visibility,
-  Edit,
-  Delete,
+  Visibility
 } from '@mui/icons-material';
 import { adminAPI } from '../services/api';
 import { AuthContext } from '../context/AuthContext';
