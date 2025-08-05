@@ -1,6 +1,5 @@
 // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-console.log(API_BASE_URL,'check',process.env)
 
 // Helper function to get auth token
 const getAuthToken = () => {
@@ -106,7 +105,6 @@ export const authAPI = {
       headers: createHeaders(),
       body: JSON.stringify(credentials),
     });
-
     return handleResponse(response);
   },
 
@@ -116,9 +114,18 @@ export const authAPI = {
       headers: createHeaders(),
       body: JSON.stringify(userData),
     });
-
     return handleResponse(response);
   },
+
+  forgotPassword: async (userData) => {
+    const response = await fetch(`${API_BASE_URL}/auth/forgot`, {
+      method: 'PUT',
+      headers: createHeaders(),
+      body: JSON.stringify(userData),
+    });
+    return handleResponse(response);
+  }
+
 };
 
 // Cart API calls

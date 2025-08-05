@@ -54,6 +54,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const forgotPassword = async (userData) => {
+    try {
+      const response = await authAPI.forgotPassword(userData);
+      if (response.success) return { success: true, message: "Password reset succesfully" };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Password reset failed'
+      };
+    }
+  }
+
   const logout = () => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
@@ -66,6 +78,7 @@ export const AuthProvider = ({ children }) => {
     login,
     register,
     logout,
+    forgotPassword
   };
 
   return (

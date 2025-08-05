@@ -56,7 +56,7 @@ img {
   .button-group {
     flex-direction: column;
   }
-  
+
   .form-container {
     padding: 10px;
   }
@@ -74,4 +74,20 @@ body {
 .card-shadow {
   box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10) !important;
   border-radius: 16px !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.text-link-primary {
+  color: #1976d2;
 }
