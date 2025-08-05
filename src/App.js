@@ -17,6 +17,7 @@ import AdminUsers from './pages/AdminUsers';
 import AdminOrders from './pages/AdminOrders';
 import AdminProducts from './pages/AdminProducts';
 import './App.css';
+import ForgotPassword from './pages/ForgotPassword';
 
 const theme = createTheme({
   palette: {
@@ -73,6 +74,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<ProductList />} />
+              <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/product/edit/:id" element={<ProductEdit />} />
               <Route path="/product/add" element={<ProductAdd />} />

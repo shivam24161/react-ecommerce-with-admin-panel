@@ -16,11 +16,12 @@ import { AuthContext } from '../context/AuthContext';
 const Register = () => {
   const navigate = useNavigate();
   const { register } = useContext(AuthContext);
-  
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
+    helpText: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -110,6 +111,16 @@ const Register = () => {
             sx={{ mb: 3 }}
           />
 
+          <TextField
+            fullWidth
+            label="What your pet name?"
+            type="text"
+            value={formData.helpText}
+            onChange={(e) => handleInputChange('helpText', e.target.value)}
+            required
+            sx={{ mb: 3 }}
+          />
+
           <Button
             type="submit"
             fullWidth
@@ -125,7 +136,7 @@ const Register = () => {
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="body2">
               Already have an account?{' '}
-              <Link to="/login" style={{ textDecoration: 'none' }}>
+              <Link to="/login" style={{ textDecoration: 'none' }} className='text-link-primary'>
                 Sign in here
               </Link>
             </Typography>

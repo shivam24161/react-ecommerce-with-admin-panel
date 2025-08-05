@@ -16,7 +16,7 @@ import { AuthContext } from '../context/AuthContext';
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
-  
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -99,15 +99,24 @@ const Login = () => {
           >
             {loading ? 'Signing In...' : 'Sign In'}
           </Button>
-
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="body2">
-              Don't have an account?{' '}
-              <Link to="/register" style={{ textDecoration: 'none' }}>
-                Sign up here
-              </Link>
-            </Typography>
-          </Box>
+          <div className='flex gap-10 justify-between'>
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="body2">
+                Forgot Passwrd -
+                <Link to="/forgot" style={{ textDecoration: 'none' }} className='text-link-primary'>
+                  Reset Now
+                </Link>
+              </Typography>
+            </Box>
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="body2">
+                Don't have an account?{' '}
+                <Link to="/register" style={{ textDecoration: 'none' }} className='text-link-primary'>
+                  Sign up here
+                </Link>
+              </Typography>
+            </Box>
+          </div>
         </form>
       </Paper>
     </Container>
