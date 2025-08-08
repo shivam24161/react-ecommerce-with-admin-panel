@@ -1,0 +1,5 @@
+Feature's to be implemented :
+1 - Implement searching for searching the products 
+2 - Add Pagination while showning the product list 
+3 - Implement functionality that admin can delete the products in bulk
+4 - Implement the functionality for edit the product in bulk
